@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/premium-vector/modern-abstract-shapes-postcard-brochure-cover-design-with-pastel-color-palette-gradient-background_29865-3129.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714953600&semt=ais.jpg');
+            background-size: cover;
+            background-repeat: no-repeats;
+            color: #fff;
+            /* Text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+            display: flex;
+            /* Use flexbox */
+            align-items: center;
+            /* Align items vertically */
+            justify-content: center;
+            /* Center items horizontally */
+            flex-wrap: wrap;
+            /* Wrap items if needed */
+        }
+
+        .logo {
+            max-width: 70px;
+            /* Adjust logo size */
+            height: auto;
+            margin-left: 10px;
+            /* Add space to the right of the logo */
+        }
+
+        h1 {
+            font-size: 36px;
+            /* Adjust heading size */
+            margin: 0 20px 20px;
+            /* Add space around the heading */
+            text-decoration: underline;
+            color: #3a2727;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #72584f;
+            /* Button background color */
+            color: #fff;
+            /* Button text color */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 100px;
+        }
+
+        .btn:hover {
+            background-color: #72584f;
+            /* Button background color on hover */
+        }
+
+        .company-name {
+            font-size: 36px;
+            /* Adjust company name size */
+            margin: 0;
+            /* Reset margin */
+            /* Add underline */
+        }
+
+        .thumbnails {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .thumbnail-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            /* Add some margin between rows */
+        }
+
+        .thumbnail {
+            margin: 20px;
+        }
+
+        .thumbnail button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 260px;
+            /* Set fixed width */
+        }
+
+        .thumbnail button:hover {
+            border-color: #f1bbdc;
+        }
+
+        .thumbnail button img {
+            width: 80px;
+            /* Adjust image size */
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .thumbnail button span {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .thumbnail button.clicked {
+            border-color: #f1bbdc;
+            /* Pink border color */
+        }
+
+        .thumbnail-row:nth-child(odd) {
+            flex-direction: row-reverse;
+            /* Start from the right side */
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .stat-box {
+        width: 30%; /* Adjust the width percentage as needed */
+        margin: 0 10px;
+        padding: 20px;
+        background-color: rgba(216, 235, 247, 0.8);
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+     }
+
+        .stat-box h3 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .stat-box p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #72584f;
+        }
+
+        .contact-form {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            color: #3a2727;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: calc(100% - 15px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #72584f;
+            color: #3a2727;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 35%;
+            margin: auto;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #5a453f;
+        }
+
+        .knowledge-panel {
+        padding: 20px;
+        margin: 20px auto; /* Center the panel horizontally */
+        text-align: center;
+        max-width: 750px; /* Set maximum width */
+    }
+
+        .knowledge__container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .knowledge__data {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color:#1d0e0e;
+        }
+
+        .knowledge__label {
+            font-weight: bold;
+            width: 59px;
+        }
+
+        .knowledge__bar {
+            background-color: #faf6fa;
+            height: 20px;
+            width: 59%;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .knowledge__progress {
+            height: 100%;
+            background-color: #72584f;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: width 0.5s ease;
+        }
+
+        .knowledge__percentage {
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer__social {
+            margin-bottom: var(--mb-4);
+            color:#fff;
+        }
+        .footer__icon {
+            font-size: 1.5rem;
+            color: #fff;
+             margin: 0 var(--mb-2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTytCmf3scBFif37_PaekaWnbzhFHS2RCBaFw&s.png"
+            alt="Company Logo" class="logo">
+        <h1>SourceCatch Konnect</h1>
+        <div>
+            <p class="tagline" style="font-size: 18px; /* Adjust tagline size */
+        margin-top: 55px; /* Add space below the tagline */
+        margin-right: 80px;
+        color: #3a2727;">Exploring Possibilities</p>
+        </div>
+        <div class="spacer" style=" flex: 2;"></div> <!-- Add spacer to push "Learn More" button to the bottom -->
+        <p class="description" style=" float: left;
+        font-weight: bold; /* Make the text bold */
+        color: #1d0e0e; 
+        font-size: 28px; margin-top: 90;">We Are SourceCatch Konnect</p>
+        <p class="company-description" style="font-size: 22px; /* Adjust description size */
+        font-weight: bold; /* Make the text bold */
+        color: #3a2727; /* Set custom color */
+        margin-top: 60px;
+        max-width: 800px;
+        float: left;">Transform Your Business with SourceCatch Konnect: Industry-Leading Solutions for Branding and
+            Telemarketing Operation</p>
+        <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwidnfWH05GGAxURplYBHTHWAoUQFnoECBQQAQ&url=https%3A%2F%2Fsckonnect.com%2F&usg=AOvVaw3aENVgQtBHHkjvM8s1uPoL&opi=89978449"
+            class="btn">Learn More</a>
+    </div>
+
+    <!-- Thumbnails -->
+    <h1 class="thumbnails-heading"
+        style="color: #3a2727;  font-weight: bold;  text-align: center; font-family: 'Calibri';">We Are Specialized in
+        the
+        following Services</h1>
+    <div class="thumbnails">
+        <div class="thumbnail-row">
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQydPpy2eT3cgLIPblYSJcMJKP0tQFXjPkBfA&s.png"
+                        alt="Icon 1">
+                    <span>Tele-Communication</span>
+                    <p>Managing and facilitating communication channels</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4TRgvo7Syd6C79OzvxlNg7cyUqnBnoUKLhlQBlzYvqZ9ha2-OwQ3gzxl3cM1AZTR-WFo&usqp=CAU.png"
+                        alt="Icon 2">
+                    <span>Tele-Marketing</span>
+                    <p>Lead generation, customer surveys, sales calls, and market research etc</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLNxKO1B60gQHbtYg4xyYTKSe3VIVthBjF9TZAPGS-IcycRYNmTTcfQd90kGkRUF73occ&usqp=CAU.png"
+                        alt="Icon 3">
+                    <span>Branding</span>
+                    <p>Helping businesses develop and enhance their brand identity</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ_F9Vj-jwhdTSYPKAAAsTaMCqgY7m_kJ85K3nQ7qe5O_wjVK0ayjXbIFe3KlEW_a9cXw&usqp=CAU.png"
+                        alt="Icon 4">
+                    <span>Software Development</span>
+                    <p>Custom software development & designing</p>
+                </button>
+            </div>
+        </div>
+        <div class="thumbnail-row">
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOINqA6fQZOBVt7r4USlGc7OaMw0snfgYKNA&s.png"
+                        alt="Icon 5">
+                    <span>Social Media Marketing</span>
+                    <p>Excuting social media marketing campaigns</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt9thdQgB9ijHuT5J5rpYo_kRqmH-lrDyW0AS2JPkg6Q8cUSG2gJhB6BYp9v8v8_lhzHg&usqp=CAU.png"
+                        alt="Icon 6">
+                    <span>Tech Support</span>
+                    <p>Assisting businesses and their customers with technical issues</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEVM4N5flyr8-p8EpPG79ww4yU8nVMO-1X2w&s.png"
+                        alt="Icon 7">
+                    <span>Client Accounting Services (CAS)</span>
+                    <p>Accounting and financial needs of clients</p>
+                </button>
+            </div>
+            <div class="thumbnail">
+                <button>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/CV/PM/CJ/110001341/bulk-sms-service-500x500.png"
+                        alt="Icon 7">
+                    <span>Bulk SMS & Email Marketing</span>
+                    <p>Custom campaigns with Bulk SMS & Email Marketing</p>
+
+                </button>
+            </div>
+        </div>
+    </div>
+          <div style="height: 120px;"></div>
+           
+          <!-- Stat Boxes -->
+            <h1 class="stat-heading"
+            style="color: #3a2727;  font-weight: bold;  text-align: center; font-family: 'Calibri';">Our Actualization</h1>
+                <div style="display: flex; flex-direction: row;">
+                    <div class="stat-box">
+                        <br>
+                        <h3>Employees</h3>
+                        <p>100+</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Projects</h3>
+                        <p>500+</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Valuable Clients</h3>
+                        <p>50+</p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+            <div>
+            </div>
+            </div>
+            <br>
+                <!--What Makes us different-->
+                <h1 class="set-heading"
+                style="color: #3a2727;  font-weight: bold;  text-align: center; font-family: 'Calibri';">What Makes US Different</h1>
+                <div class="knowledge-panel"> 
+                    <div class="knowledge__container">
+                        <div class="knowledge__data">
+                            <div class="knowledge__label" style="color: #3a2727;">Business Expertise</div>
+                            <div class="knowledge__bar">
+                                <div class="knowledge__progress" style="width: 95%;"></div>
+                            </div>
+                            <div class="knowledge__percentage"></div>
+                        </div>
+                        <div class="knowledge__data">
+                            <div class="knowledge__label" style="color: #3a2727;">Tailored Solutions</div>
+                            <div class="knowledge__bar">
+                                <div class="knowledge__progress" style="width: 95%;"></div>
+                            </div>
+                            <div class="knowledge__percentage"></div>
+                        </div>
+                        <div class="knowledge__data">
+                            <div class="knowledge__label" style="color: #3a2727;">End-to-End Responsibility
+                            </div>
+                            <div class="knowledge__bar">
+                                <div class="knowledge__progress" style="width: 90%;"></div>
+                            </div>
+                            <div class="knowledge__percentage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <div class="form-container">
+                    <h2>Contact Us</h2>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required><br>
+                        <input type="email" name="email" placeholder="Your Email" required><br>
+                        <input type="text" name="subject" placeholder="Subject" required><br>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
+                        <input type="submit" value="Send Message">
+                    </form>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer__info">
+                    <div class="footer__info-item">
+                        <i class='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1t49KQhskaVuuhD4KLUTt_5ozDyaJy0gIaw80vgGQYvnT_GlsNmBqwy-IYPICfYhj5uE&usqp=CAU'></i>
+                        <p>SK Tower, A-52, Old MIDC, Ayodhya Nagar Road, Jalgaon, 425003</p>
+                    </div>
+                    <div class="footer__info-item">
+                        <i class='bx bx-phone'></i>
+                        <p>+91 22- 68563241</p>
+                    </div>
+                    <div class="footer__info-item">
+                        <i class='bx bx-envelope'></i>
+                        <p>hr@sckonnect.com</p>
+                    </div>
+                </div>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/profile.php?id=61550302228683" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                    <a href="https://instagram.com/sckonnect?igshid=OGQ5ZDc2ODk2ZA==" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                    <a href="#" class="footer__icon"><i class='bx bxl-whatsapp' ></i></a>
+                    <a href="https://www.linkedin.com/company/sourcecatch-konnect/" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </footer>
+            
+
+            <div class="email" style=" position: absolute; /* Position absolutely */
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+            font-size: 14px;
+            font-weight: bold;
+            color: #1d0e0e;"><a href="hr@sckonnect.com">hr@sckonnect.com</a>
+
+</body>
+
+</html>
